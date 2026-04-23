@@ -1,0 +1,6 @@
+@YellowUA.Core_HostAddress = http://localhost:5238
+
+GET {{YellowUA.Core_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
