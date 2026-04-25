@@ -16,6 +16,7 @@ namespace YellowUA.Core.Controllers
         }
 
 
+
         [HttpPost("register")]
         public async Task<ActionResult> Register([FromBody] RegistrationDTO registrationData)
         {
@@ -24,6 +25,7 @@ namespace YellowUA.Core.Controllers
 
             return Ok(result);
         }
+
 
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] LoginDTO loginData)
