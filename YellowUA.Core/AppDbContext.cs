@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using YellowUA.Core.Models;
+using YellowUA.Core.Models.Products;
 
 namespace YellowUA.Core
 {
@@ -8,6 +9,9 @@ namespace YellowUA.Core
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        //DbSet<ApplicationUser> Addresses { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<CartProduct> CartProducts { get; set; }
     }
 }

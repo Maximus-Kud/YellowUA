@@ -5,7 +5,7 @@ namespace YellowUA.Core.DTO.Authentication
     public class RegistrationDTO
     {
         [Required]
-        public string FirtsName { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
         public string LastName { get; set; } = string.Empty;
