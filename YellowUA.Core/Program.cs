@@ -7,6 +7,7 @@ using YellowUA.Core;
 using YellowUA.Core.Models;
 using YellowUA.Core.Models.Roles;
 using YellowUA.Core.Services.Authentication;
+using YellowUA.Core.Services.Marketplace;
 using YellowUA.Core.Services.Marketplace.Cart;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IMarketplaceService, MarketplaceService>();
 
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()

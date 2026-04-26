@@ -7,8 +7,6 @@ namespace YellowUA.Core.Services.Marketplace
     {
         Task<List<Product>> GetAvailableProducts();
 
-        Task<BuyProductResponseDTO> BuyProduct(int productId);
-
-        //Task GetAccountInfo();
+        //Task<BuyProductResponseDTO> BuyProduct(int productId);
     }
 }

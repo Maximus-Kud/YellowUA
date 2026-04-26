@@ -20,6 +20,8 @@ namespace YellowUA.Core.Controllers
         [HttpPost("register")]
         public async Task<ActionResult> Register([FromBody] RegistrationDTO registrationData)
         {
+            if (!ModelState.IsValid) return BadRequest("Invalid input");
+
             var result = await _authenticationService.Register(registrationData);
             if (!result.Success) return BadRequest(result.Response);
 
@@ -30,6 +32,8 @@ namespace YellowUA.Core.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] LoginDTO loginData)
         {
+            if (!ModelState.IsValid) return BadRequest("Invalid input");
+
             var result = await _authenticationService.Login(loginData);
             if (!result.Success) return Unauthorized(result.Response);
 

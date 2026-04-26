@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using YellowUA.Core.DTO.Cart;
 using YellowUA.Core.DTO.Response;
 using YellowUA.Core.Models.Products;
 
@@ -14,14 +15,16 @@ namespace YellowUA.Core.Services.Marketplace.Cart
         }
 
 
+
         public async Task<List<CartProduct>> GetCart(string userId)
         {
             return await _context.CartProducts.Include(x => x.Product).Where(x => x.UserId == userId).ToListAsync();
         }
 
-        public async Task AddItemToCart(string userId, int productId)
+
+        public async Task AddItemToCart(CartDTO cartData)
         {
-            var item = await _context.CartProducts.FirstOrDefaultAsync(x => x.UserId == userId && x.ProductId == productId);
+            var item = await _context.CartProducts.FirstOrDefaultAsync(x => x.UserId == cartData.UserId && x.ProductId == cartData.ProductId);
 
             if (item != null)
             {
@@ -31,8 +34,8 @@ namespace YellowUA.Core.Services.Marketplace.Cart
             {
                 _context.CartProducts.Add(new CartProduct
                 {
-                    UserId = userId,
-                    ProductId = productId,
+                    UserId = cartData.UserId,
+                    ProductId = cartData.ProductId,
                     Quantity = 1
                 });
             }
@@ -40,9 +43,10 @@ namespace YellowUA.Core.Services.Marketplace.Cart
             await _context.SaveChangesAsync();
         }
 
-        public async Task<FlagResponseDTO> RemoveItemFromCart(string userId, int productId)
+
+        public async Task<FlagResponseDTO> RemoveItemFromCart(CartDTO cartData)
         {
-            var item = await _context.CartProducts.FirstOrDefaultAsync(x => x.UserId == userId && x.ProductId == productId);
+            var item = await _context.CartProducts.FirstOrDefaultAsync(x => x.UserId == cartData.UserId && x.ProductId == cartData.ProductId);
             if (item == null) return new FlagResponseDTO { Success = false };
 
             _context.CartProducts.Remove(item);
@@ -52,6 +56,46 @@ namespace YellowUA.Core.Services.Marketplace.Cart
             {
                 Success = true,
             };
+        }
+
+
+        public async Task<FlagResponseDTO> BuyItemsFromCart(string userId)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+                if (user == null) return new FlagResponseDTO { Success = false, Message = "User not found" };
+
+                var items = await _context.CartProducts.Include(x => x.Product).Where(x => x.UserId == userId).ToListAsync();
+                if (items.Count == 0) return new FlagResponseDTO { Success = false, Message = "No products in cart" };
+
+
+                decimal total = 0;
+
+                foreach (var item in items)
+                {
+                    total += item.Product.Price;
+                }
+
+                if (total > user.Balance) return new FlagResponseDTO { Success = false, Message = "Not enough money" };
+
+                user.Balance -= total;
+
+
+                _context.CartProducts.RemoveRange(items);
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new FlagResponseDTO { Success = true };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return new FlagResponseDTO { Success = false, Message = "Transaction failed: " + ex };
+            }
         }
     }
 }

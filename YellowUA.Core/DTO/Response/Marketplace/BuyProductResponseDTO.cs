@@ -4,7 +4,7 @@
     {
         public string Message { get; set; } = string.Empty;
 
-        public string Product { get; set; }
+        public string Product { get; set; } = string.Empty;
 
         public decimal Total { get; set; }
     }

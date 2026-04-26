@@ -1,4 +1,5 @@
-﻿using YellowUA.Core.DTO.Response;
+﻿using YellowUA.Core.DTO.Cart;
+using YellowUA.Core.DTO.Response;
 using YellowUA.Core.Models.Products;
 
 namespace YellowUA.Core.Services.Marketplace.Cart
@@ -7,8 +8,10 @@ namespace YellowUA.Core.Services.Marketplace.Cart
     {
         Task<List<CartProduct>> GetCart(string userId);
 
-        Task AddItemToCart(string userId, int productId);
+        Task AddItemToCart(CartDTO cartData);
 
-        Task<FlagResponseDTO> RemoveItemFromCart(string userId, int productId);
+        Task<FlagResponseDTO> RemoveItemFromCart(CartDTO cartData);
+
+        Task<FlagResponseDTO> BuyItemsFromCart(string userId);
     }
 }

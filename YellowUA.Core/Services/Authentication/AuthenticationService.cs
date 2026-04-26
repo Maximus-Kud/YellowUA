@@ -24,6 +24,7 @@ namespace YellowUA.Core.Services.Authentication
         }
 
 
+
         public async Task<RegistrationResponseDTO> Register(RegistrationDTO registrationData)
         {
             var user = new ApplicationUser
@@ -48,7 +49,6 @@ namespace YellowUA.Core.Services.Authentication
                 Email = user.Email,
             };
         }
-
 
 
         public async Task<LoginResponseDTO> Login(LoginDTO loginData)
