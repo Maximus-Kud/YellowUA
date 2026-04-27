@@ -1,0 +1,165 @@
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url('./assets/fonts/Montserrat-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+}
+
+
+
+
+
+* {
+  font-family: 'Montserrat-Regular';
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+#header {
+  width: 100vw;
+}
+
+.header-content {
+  max-width: 1300px;
+  width: 100%;
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#header-top {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 24px;
+
+  padding: 6px 0;
+
+  font-size: 12px;
+}
+
+
+
+#left-part {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+
+#hotline-number {
+  display: flex;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+#divider {
+  height: 22px;
+  width: 1px;
+  background-color: #b5b5b5;
+}
+
+#header-top svg {
+  height: 100%;
+  width: 17px;
+}
+
+
+
+#right-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+
+
+
+
+#header-main {
+  background-color: rgba(27,27,27,1);
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+#yellow-icon {
+  height: 64%;
+}
+
+
+#search-input {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+
+  padding: 3px 15px;
+  width: 60%;
+  height: 33px;
+
+  background: transparent;
+}
+
+#search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+#search-input input::placeholder {
+  font-family: 'Montserrat-Medium';
+}
+
+#search-icon {
+  flex-shrink: 0;
+}
+
+
+#icons-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+#login-button {
+  background: rgba(247,208,70,1);
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
