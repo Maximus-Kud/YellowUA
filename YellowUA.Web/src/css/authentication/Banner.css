@@ -1,0 +1,30 @@
+.current-banner {
+  display: flex;
+  margin: 0 auto;
+}
+
+
+
+#slides {
+  display: flex;
+  margin: 0 auto;
+
+  width: 1300px;
+  height: 54px;
+}
+
+
+.slide {
+  height: 100%;
+  width: calc(1300px / 5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f6f6f6;
+  border-right: 1px solid #dbdbdb;
+}
+.slide:last-child {
+  border-right: none;
+}

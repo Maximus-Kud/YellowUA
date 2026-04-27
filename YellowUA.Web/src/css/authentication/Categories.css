@@ -1,0 +1,31 @@
+#categories {
+  display: flex;
+  align-items: center;
+
+  max-width: 1300px;
+  margin: 0 auto;
+
+  height: 70px;
+
+  background-color: #f2f2f2;
+  border-radius: 8px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+.category {
+  padding: 5px;
+
+  flex: 1;
+
+  font-size: 12px;
+
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
