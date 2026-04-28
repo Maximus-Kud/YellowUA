@@ -28,6 +28,7 @@ namespace YellowUA.Core
                     Price = 1300,
                     InStock = 20,
                     IsAvailable = true,
+                    Code = "562348956"
                 },
 
                 new Product
@@ -37,6 +38,7 @@ namespace YellowUA.Core
                     Price = 900,
                     InStock = 50,
                     IsAvailable = true,
+                    Code = "453568967"
                 },
 
                 new Product
@@ -46,6 +48,7 @@ namespace YellowUA.Core
                     Price = 200,
                     InStock = 10,
                     IsAvailable = true,
+                    Code = "145689537"
                 }
             );
         }

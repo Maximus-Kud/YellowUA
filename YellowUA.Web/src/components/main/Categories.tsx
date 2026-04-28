@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
+
+
 function Categories() {
   return (
     <div id='categories'>
-      <div className="category">Apple</div>
+      <Link to="/products" className="category">Apple</Link>
       <div className="category">Смартфони Планшети</div>
       <div className="category">Ноутбуки</div>
       <div className="category">Фото Аудіо PS5</div>

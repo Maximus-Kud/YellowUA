@@ -1,0 +1,253 @@
+.product-layout {
+  max-width: 1300px;
+  margin: 0 auto;
+
+  padding: 20px 0;
+}
+
+
+
+.path {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.path svg {
+  width: 15px;
+  height: 15px;
+}
+
+.path span {
+  font-size: 13px;
+}
+
+
+
+.product-name-big {
+  font-size: 36px;
+}
+
+
+
+
+
+
+.filters-title {
+  margin-top: 5px;
+  margin-bottom: 20px;
+
+  font-family: 'Montserrat-SemiBold';
+  font-size: 17px;
+}
+
+
+
+.delete-tag {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-tag svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+.clear-tags {
+  color: #6a5eff;
+
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-family: 'Montserrat-SemiBold';
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+
+
+
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #dadada;
+  background-color: transparent;
+  cursor: pointer;
+
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+
+  position: absolute;
+  left: 7px;
+  top: 2px;
+
+  width: 5px;
+  height: 10px;
+
+  border: solid #949494;
+  border-width: 0 3px 3px 0;
+  
+  transform: rotate(45deg);
+}
+
+
+
+.text {
+  color: #1a1a1a;
+}
+
+.filterText {
+  color: #aaaaaa;
+}
+
+.filterTextWithCheckbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.biggerText {
+  font-size: 17px;
+}
+
+.fontRegular {
+  font-family: "Montserrat-Regular";
+}
+
+.fontBold {
+  font-family: "Montserrat-SemiBold";
+}
+
+.filter {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.paragraph {
+  margin-bottom: 24px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 15px 0;
+}
+
+.count {
+  color: #9c9c9c;
+  font-size: 14px;
+}
+
+.filter-line {
+  font-size: 14px;
+}
+
+
+
+#filters {
+  width: 250px;
+}
+
+
+
+#filterTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#hideFilter {
+  background-color: #fff200;
+  width: 15px;
+  height: 2px;
+}
+
+
+
+#filterCategory {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+#prices {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 13px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+#priceRange {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#range {
+  width: 14px;
+  height: 14px;
+  
+  background-color: #ffffff;
+  border: 3px solid #ffd400;
+  border-radius: 50%;
+}
+
+#priceBar {
+  width: 200px;
+  height: 3px;
+
+  background-color: #ffd400;
+  position: relative;
+}
+
+
+#filterRAM {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.colorItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.colorBox {
+  width: 24px;
+  height: 24px;
+}
+
+.blue { background: #2f6fed; }
+.silver { background: #c0c0c0; }
+.orange { background: #ff6a00; }

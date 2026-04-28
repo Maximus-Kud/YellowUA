@@ -4,6 +4,7 @@ namespace YellowUA.Core.Models.Products
 {
     public class Product
     {
+        [Key]
         [Required]
         public int Id { get; set; }
 
@@ -19,5 +20,8 @@ namespace YellowUA.Core.Models.Products
 
         [Required]
         public bool IsAvailable { get; set; }
+
+        [Required]
+        public string Code { get; set; } = string.Empty;
     }
 }

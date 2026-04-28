@@ -18,6 +18,8 @@
   height: 100%;
   width: calc(1300px / 5);
 
+  font-family: 'Montserrat-SemiBold';
+
   display: flex;
   justify-content: center;
   align-items: center;

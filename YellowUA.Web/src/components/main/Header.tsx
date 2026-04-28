@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import uaIcon from '../../assets/icons/ua.webp'
 import yellowUaIcon from '../../assets/icons/yellowUa-logo.svg'
 
@@ -38,7 +39,7 @@ function Header() {
 
       <div id='header-main'>
         <div className='header-content'>
-          <img id='yellow-icon' src={yellowUaIcon} alt={yellowUaIcon} />
+          <Link to="/"><img id='yellow-icon' src={yellowUaIcon} alt={yellowUaIcon} /></Link>
 
           <div id="search-input">
             <input type='text' placeholder='Пошук товарів' />

@@ -1,11 +1,21 @@
-import Header from './components/main-page/Header'
-import Categories from './components/main-page/Categories'
-import Banner from './components/main-page/Banner'
+import Header from './components/main/Header'
+import Categories from './components/main/Categories'
+import Banner from './components/main/Banner'
+
+import ProductPage from './pages/ProductPage'
+
 
 import './css/App.css'
-import './css/authentication/Header.css'
-import './css/authentication/Categories.css'
-import './css/authentication/Banner.css'
+import './css/pages/main-page/Header.css'
+import './css/pages/main-page/Categories.css'
+import './css/pages/main-page/Banner.css'
+
+import './css/pages/products-page/ProductPage.css'
+import { useState } from 'react'
+import type { Product } from './types/Product'
+import type { CartProduct } from './types/CartProduct'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
 
 
 
@@ -13,15 +23,31 @@ import './css/authentication/Banner.css'
 
 
 function App() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
+
+
+
+
+
   return (
-    <>
-      <Header />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
 
-      <Categories />
-
-      <Banner />
-    </>
+        <Route 
+          path="/products" 
+          element={
+            <ProductPage
+              products={products}
+              setProduct={setProducts}
+            />
+          } 
+        />
+      </Routes>
+    </BrowserRouter>
   )
 }
+
 
 export default App
