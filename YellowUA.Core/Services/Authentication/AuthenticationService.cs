@@ -38,8 +38,8 @@ namespace YellowUA.Core.Services.Authentication
             var userFull = await _userManager.CreateAsync(user, registrationData.Password);
             if (!userFull.Succeeded) return new RegistrationResponseDTO { Success = false, Response = string.Join(", ", userFull.Errors.Select(e => e.Description)) };
 
-            if (registrationData.Email == "admin@email.com") await _userManager.AddToRoleAsync(user, Roles.Admin);
-            else await _userManager.AddToRoleAsync(user, Roles.Customer);
+            if (registrationData.Email == "admin@email.com") await _userManager.AddToRoleAsync(user, RoleNames.Admin);
+            else await _userManager.AddToRoleAsync(user, RoleNames.Customer);
 
 
             return new RegistrationResponseDTO

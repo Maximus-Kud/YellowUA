@@ -1,4 +1,5 @@
-﻿using YellowUA.Core.DTO.Response.Marketplace;
+﻿using YellowUA.Core.DTO.Response;
+using YellowUA.Core.DTO.Response.Marketplace;
 using YellowUA.Core.Models.Products;
 
 namespace YellowUA.Core.Services.Marketplace
@@ -7,6 +8,6 @@ namespace YellowUA.Core.Services.Marketplace
     {
         Task<List<Product>> GetAvailableProducts();
 
-        //Task<BuyProductResponseDTO> BuyProduct(int productId);
+        Task<UserResponseDTO> GetAccountInfo(string userId);
     }
 }

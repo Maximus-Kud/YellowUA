@@ -76,7 +76,12 @@ namespace YellowUA.Core.Services.Marketplace.Cart
 
                 foreach (var item in items)
                 {
-                    total += item.Product.Price;
+                    if (item.Product.InStock < item.Quantity) return new FlagResponseDTO { Success = false, Message = $"Not enough stock for {item.Product.Name}" };
+
+                    total += item.Product.Price * item.Quantity;
+                    item.Product.InStock -= item.Quantity;
+
+                    if (item.Product.InStock == 0) item.Product.IsAvailable = false;
                 }
 
                 if (total > user.Balance) return new FlagResponseDTO { Success = false, Message = "Not enough money" };

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -38,15 +39,10 @@ namespace YellowUA.Core.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return NotFound("User was not found");
 
-            return Ok(new
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Balance = user.Balance,
-                Role = User.FindFirstValue(ClaimTypes.Role)
-            });
+            var response = await _marketplaceService.GetAccountInfo(user.Id);
+            if (response == null) return NotFound("User was not found");
+
+            return Ok(response);
         }
     }
 }
