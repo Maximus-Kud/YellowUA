@@ -5,7 +5,7 @@ using YellowUA.Core.Services.Authentication;
 namespace YellowUA.Core.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("yellowUA/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService _authenticationService;

@@ -5,6 +5,12 @@
   padding: 20px 0;
 }
 
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
 
 
 .path {
@@ -27,6 +33,8 @@
 
 .product-name-big {
   font-size: 36px;
+
+  margin-bottom: 30px;
 }
 
 
@@ -164,6 +172,7 @@ hr {
 
 #filters {
   width: 250px;
+  flex-shrink: 0;
 }
 
 

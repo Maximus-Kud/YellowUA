@@ -13,7 +13,7 @@ export async function callApi(controller: keyof typeof apiConfig, endpoint: keyo
   let url = `${localhost}${controller}`;
 
   if (endpoint) url += `/${endpoint}`;
-  if (config.id && id) url += `/${id}`;
+  if (config.id && id !== undefined) url += `/${id}`;
 
   const token = getWithExpiry("token"); 
 
@@ -94,20 +94,65 @@ export async function marketplaceGetAccountInfo() {
 
 
 
+// ========== Cart ==========
+export async function cartGetProducts() {
+  return callApi("Cart", "")
+}
+
+
+export async function cartAddItemToCart(data: {
+  userId: string,
+  productId: number
+}) {
+  return callApi("Cart", "addItemToCart", data,);
+}
+
+
+export async function cartRemoveItemFromCart(data: {
+  userId: string,
+  productId: number
+}) {
+  return callApi("Cart", "removeItemFromCart", data);
+}
+
+
+export async function cartBuyProducts() {
+  return callApi("Cart", "buyProducts");
+}
+
+
+
+
 
 // ========== Admin ==========
-export async function adminGetProducts() {
-  return callApi("Admin", "products");
+export async function adminGetAllUsers() {
+  return callApi("Admin", "getAllUsers");
 }
 
 
-export async function adminAddProduct(name: string, price: number, inStock: number) {
-  return callApi("Admin", "addProduct", { name, price, inStock });
+export async function adminGetAllProducts() {
+  return callApi("Admin", "getAllProducts");
 }
 
 
-export async function adminUpdateProduct(name: string, price: number, inStock: number, isAvailable: boolean, id: number) {
-  return callApi("Admin", "updateProduct", { name, price, inStock, isAvailable }, id);
+export async function adminAddProduct(data: {
+  productName: string,
+  price: number,
+  inStock: number,
+  code: string
+}) {
+  return callApi("Admin", "addProduct", data);
+}
+
+
+export async function adminChangeProduct(data: {
+  name: string,
+  price: number,
+  inStock: number,
+  isAvailable: boolean,
+  code: string
+}, id: number) {
+  return callApi("Admin", "changeProduct", data, id);
 }
 
 
@@ -116,26 +161,14 @@ export async function adminDeleteProduct(id: number) {
 }
 
 
-export async function adminGetUsers() {
-  return callApi("Admin", "users");
+export async function adminGetProductsInCart() {
+  return callApi("Admin", "getProductsInCart");
 }
 
 
-export async function adminGetOrdersInShoppingCart() {
-  return callApi("Admin", "getOrdersInShoppingCart");
-}
-
-
-export async function adminGetOrdersPurchased() {
-  return callApi("Admin", "getOrdersPurchased");
-}
-
-
-export async function adminChangeOrderStatus(orderId: number, status: string) {
-  return callApi("Admin", "changeOrderStatus", { orderId, status });
-}
-
-
-export async function adminChangeAccountBalance(accountId: string, newBalance: number) {
-  return callApi("Admin", "changeAccountBalance", { accountId, newBalance });
+export async function adminChangeAccountBalance(data: {
+  userId: string,
+  newBalance: number
+}) {
+  return callApi("Admin", "changeAccountBalance", data);
 }

@@ -7,7 +7,7 @@ using YellowUA.Core.Services.Admin;
 namespace YellowUA.Core.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("yellowUA/[controller]")]
     public class AdminController : ControllerBase
     {
         private readonly IAdminService _adminService;

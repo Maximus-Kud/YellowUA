@@ -2,13 +2,14 @@ import Header from './components/main/Header'
 import Categories from './components/main/Categories'
 import Banner from './components/main/Banner'
 
-import ProductPage from './pages/ProductPage'
-
 
 import './css/App.css'
 import './css/pages/main-page/Header.css'
 import './css/pages/main-page/Categories.css'
 import './css/pages/main-page/Banner.css'
+
+import ProductPage from './pages/ProductPage'
+import './css/pages/products-page/ProductTable.css'
 
 import './css/pages/products-page/ProductPage.css'
 import { useState } from 'react'

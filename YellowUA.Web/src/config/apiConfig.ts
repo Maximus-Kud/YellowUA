@@ -53,38 +53,31 @@ export const apiConfig: ApiConfig = {
 
 
   Admin: {
-    products: {
+    getAllUsers: {
+      method: "GET"
+    },
+    getAllProducts: {
       method: "GET"
     },
     addProduct: {
       method: "POST",
-      body: ["name", "price", "inStock"]
+      body: ["productName", "price", "inStock", "code"]
     },
-    updateProduct: {
+    changeProduct: {
       method: "PATCH",
       id: true,
-      body: ["name","price","inStock","isAvailable"]
+      body: ["name", "price", "inStock", "isAvailable", "code"]
     },
     deleteProduct: {
       method: "DELETE",
       id: true
     },
-    users: {
+    getProductsInCart: {
       method: "GET"
-    },
-    getOrdersInShoppingCart: {
-      method: "GET"
-    },
-    getOrdersPurchased: {
-      method: "GET"
-    },
-    changeOrderStatus: {
-      method: "PATCH",
-      body: ["orderId","status"]
     },
     changeAccountBalance: {
       method: "PATCH",
-      body: ["accountId","newBalance"]
+      body: ["userId", "newBalance"]
     }
   }
 } as const;

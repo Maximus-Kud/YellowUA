@@ -8,7 +8,7 @@ using YellowUA.Core.Services.Marketplace.Cart;
 namespace YellowUA.Core.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("yellowUA/[controller]")]
     public class CartController : ControllerBase
     {
         private readonly ICartService _cartService;
